@@ -1,0 +1,94 @@
+<div class="min-vh-100 d-flex align-items-center justify-content-center py-4 px-3"
+     style="background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);">
+  
+  <div class="card border-0 shadow-lg rounded-4 overflow-hidden" style="max-width: 430px; width: 100%;">
+    
+    <div class="bg-emerald py-2"></div>
+
+    <div class="card-body p-4 p-md-5 bg-white">
+      
+      <div class="text-center mb-4">
+        <div class="d-inline-flex align-items-center justify-content-center bg-emerald-dark text-white rounded-4 mb-3 shadow-sm"
+             style="width: 64px; height: 64px;">
+          <i class="bi bi-shield-lock-fill fs-2"></i>
+        </div>
+        <h3 class="fw-bold text-dark mb-1">SHD Publicaciones</h3>
+        <p class="text-muted small mb-0">Autenticación con FakeStoreAPI</p>
+      </div>
+
+      @if (errorMessage) {
+        <div class="alert alert-danger d-flex align-items-center py-2 px-3 rounded-3 small mb-3" role="alert">
+          <i class="bi bi-exclamation-triangle-fill me-2 fs-6"></i>
+          <div>{{ errorMessage }}</div>
+        </div>
+      }
+
+      <form (ngSubmit)="onLogin()">
+        <div class="mb-3">
+          <label class="form-label fw-semibold small text-secondary">Usuario</label>
+          <div class="input-group input-group-lg">
+            <span class="input-group-text bg-light border-end-0 text-emerald">
+              <i class="bi bi-person-fill"></i>
+            </span>
+            <input
+              type="text"
+              class="form-control bg-light border-start-0 fs-6"
+              [(ngModel)]="username"
+              name="username"
+              placeholder="johnd"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-semibold small text-secondary">Contraseña</label>
+          <div class="input-group input-group-lg">
+            <span class="input-group-text bg-light border-end-0 text-emerald">
+              <i class="bi bi-key-fill"></i>
+            </span>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-control bg-light border-start-0 border-end-0 fs-6"
+              [(ngModel)]="password"
+              name="password"
+              placeholder="••••••••"
+              required
+            />
+            <button
+              type="button"
+              class="input-group-text bg-light border-start-0 text-muted"
+              (click)="showPassword = !showPassword"
+            >
+              <i class="bi" [class.bi-eye]="!showPassword" [class.bi-eye-slash]="showPassword"></i>
+            </button>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-emerald btn-lg w-100 rounded-3 fw-bold shadow-sm fs-6 py-2"
+          [disabled]="loading"
+        >
+          @if (loading) {
+            <span class="spinner-border spinner-border-sm me-2"></span>Consultando API...
+          } @else {
+            <i class="bi bi-box-arrow-in-right me-2"></i>Entrar al sistema
+          }
+        </button>
+      </form>
+
+      <div class="mt-4 pt-3 border-top text-center">
+        <p class="text-muted small mb-2">Credenciales de administrador (FakeStoreAPI):</p>
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-emerald rounded-pill px-3"
+          (click)="username = 'johnd'; password = 'm38rmF$'"
+        >
+          <i class="bi bi-person-check-fill me-1"></i>Rellenar: johnd / m38rmF$
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.bg-emerald-dark {
+  background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%) !important;
+}
+
+.bg-emerald {
+  background-color: #059669 !important;
+}
+
+.text-emerald {
+  color: #059669 !important;
+}
+
+.btn-emerald {
+  background-color: #059669 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+}
+
+.btn-emerald:hover:not(:disabled) {
+  background-color: #047857 !important;
+  border-color: #047857 !important;
+  color: #ffffff !important;
+}
+
+.btn-outline-emerald {
+  color: #059669 !important;
+  border-color: #059669 !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-emerald:hover {
+  background-color: #059669 !important;
+  color: #ffffff !important;
+}
